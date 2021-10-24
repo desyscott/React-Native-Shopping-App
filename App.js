@@ -1,22 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Home from "./Screens/HomeScreen/Home";
+import Register from "./Screens/Register";
+import Login from "./Screens/Login";
 
+const Stack = createStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>My Shopping App</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName={"Home"}
+        screenOptions={{ header: () => null }}
+      >
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#E4D5EA",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    color: "#262525",
-  },
-});
