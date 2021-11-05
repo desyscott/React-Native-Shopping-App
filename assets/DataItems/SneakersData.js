@@ -1,48 +1,114 @@
-const Converse = require("../images/converse.jpg");
-const Boots = require("../images/Boots.jpg");
-const nikeSlides = require("../images/NIKE Slides .jpg");
-const BuckleLoafers = require("../images/Lori Black Buckle Loafers.png");
-const AirJordan = require("../images/AirJordan 4 .jpg");
+const Converse = require("../Images/converse.jpg");
+const nikeSlides = require("../Images/NIKESlides.jpg");
+const BuckleLoafers = require("../Images/BlackBuckle.png");
+const MenJeans = require("../Images/MenJeansClassic1.jpg");
+const vans = require("../Images/vans.jpg");
+const DenimPants = require("../Images/Denimpants.jpg");
+const FloralShirt = require("../Images/FloralShirt.jpg");
+const CorduroyShirt = require("../Images/CorduroyShirt.jpg");
+const Hoodie = require("../Images/Hoodie.jpg");
+const VintageStriped = require("../Images/VintageStriped.jpg");
 
 export const SneakersItems = [
   {
     id: 1,
-    image: Converse,
-    name: "Converse Chuck 70",
+    img: Converse,
+    name: "Converse Chuck ",
     alt: "Converse Chuck 70",
+    likes: true,
     price: "$72.00",
+    discount: "-12%",
     desc: "Shop the latest Converse Chuck 70 Hi sneakers in dark green trends with ASOS! Free delivery and returns (Ts&Cs apply), order today!",
   },
+
   {
     id: 2,
-    image: Boots,
-    name: "zip-front chunky ankle boots",
-    alt: "zip-front chunky ankle boots",
+    img: CorduroyShirt,
+    name: " Solid Corduroy Men's Shirt",
+    alt: " Solid Corduroy Men's Floral Shirt",
     price: "$45.24",
-    desc: "a pair of zip-front chunky ankle boots. Click to shop the boots.",
+    likes: true,
+    discount: "-38%",
+    desc: "Solid Corduroy Basic Men's Floral Shirt is fashionable and cheap, come to Hawalili to find out about the Clothing LIMITED TIME OFFER AT THIS PRICE",
   },
   {
     id: 3,
-    image: nikeSlides,
+    img: nikeSlides,
     name: "Nike Slides",
     alt: "Nike Slides",
     price: "$20.00",
+    likes: false,
+    discount: "-1%",
     desc: "NIKE Slides size 8 Olive color In very good conditions",
   },
   {
     id: 4,
-    image: BuckleLoafers,
-    name: "Lori Black Buckle Loafers",
-    alt: "Lori Black Buckle Loafers",
+    img: BuckleLoafers,
+    name: "Lori Black Buckle ",
+    alt: "Lori Black Buckle ",
     price: "$50.00",
+    likes: true,
+    discount: "-6%",
     desc: " Rubber Inner Lining: Calf Skin Lining Shoes Material: 100% Calf Leather",
   },
   {
     id: 5,
-    image: AirJordan,
-    name: "Air Jordan 4",
-    alt: "Air Jordan 4",
+    img: MenJeans,
+    name: "Men Jeans Classic",
+    alt: "Men Jeans Classic",
     price: "$150.54",
+    likes: true,
+    discount: "-12%",
+    desc: "A wardrobe staple Straight Cut Slim Fit Cotton Fastening: Zip Men Jeans Classic",
+  },
+  {
+    id: 6,
+    img: vans,
+    name: "Vans",
+    alt: "Vans",
+    price: "$97.00",
+    likes: false,
+    discount: "-2%",
     desc: "Travis Scott x Air Jordan 4 'Cactus Jack' Release Details Leak",
+  },
+  {
+    id: 7,
+    img: DenimPants,
+    name: "Denim pants loose  ",
+    alt: "Denim pants loose",
+    price: "$200.00",
+    likes: true,
+    discount: "-11%",
+    desc: "Premium Quality: Ultra detailed finish HD screen printing: intense colors, exceptional rendering Colors",
+  },
+  {
+    id: 8,
+    img: FloralShirt,
+    name: " Men's Floral Shirt Hawalili",
+    alt: "Men's Floral Shirt Hawalili",
+    price: "$10.54",
+    likes: false,
+    discount: "-6%",
+    desc: "Cotton-Blend Men's Floral Shirt is fashionable and cheap, come to Hawalili to find out about the Clothing",
+  },
+  {
+    id: 9,
+    img: Hoodie,
+    name: " Cotton Hoodie",
+    alt: "Cotton Hoodie",
+    price: "$10.54",
+    likes: false,
+    discount: "-10%",
+    desc: "Hoodie by Clout CollectionSimplicity, minimalism and functionality. With a clean, crisp and considered color palette ",
+  },
+  {
+    id: 10,
+    img: VintageStriped,
+    name: " Vintage Striped",
+    alt: "Vintage Striped",
+    price: "$10.54",
+    likes: false,
+    discount: "-6%",
+    desc: "Shop Men's shirts Hawalili Striped Men's Shirts For Women As Picture 1 Outfits online. Discover unique designers ",
   },
 ];

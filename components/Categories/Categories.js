@@ -6,8 +6,9 @@ function Categories() {
   const CategoriesData = [
     "Trending",
     "Collections",
-    "Videos",
     "Shops",
+    "Videos",
+    "Editors'Pick",
     "Guides",
   ];
 
@@ -17,11 +18,15 @@ function Categories() {
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {CategoriesData.map((item, index) => {
           return (
-            <CateWrapper key={index} onPress={() => setCategoryIndex(index)}>
+            <CateWrapper
+              key={index}
+              onPress={() => setCategoryIndex(index)}
+              activeOpacity={0.8}
+            >
               <Text
                 style={[
                   styles.cateText,
-                  categoryIndex == index && styles.cateTextPress,
+                  categoryIndex === index && styles.cateTextPress,
                 ]}
               >
                 {item}
@@ -38,14 +43,14 @@ export default Categories;
 
 const styles = StyleSheet.create({
   cateText: {
-    color: "grey",
+    color: "#696969",
     fontSize: 17,
     fontWeight: "bold",
-    textTransform: "capitalize",
+    letterSpacing: 0.1,
   },
   cateTextPress: {
     borderBottomWidth: 3,
-    borderBottomColor: "#00b761",
-    color: "#00b761",
+    borderBottomColor: "#f52a2a",
+    color: "#f52a2a",
   },
 });
