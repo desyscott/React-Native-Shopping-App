@@ -1,18 +1,20 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import Login from "./Screens/Login";
 import Home from "./Screens/HomeScreen/Home";
 import Register from "./Screens/Register";
+import logoImg from "./assets/Images/logo.jpg";
 
 import Details from "./Screens/DetailsScreen/Details";
 import CartScreen from "./Screens/CartScreen";
 import AcountSettings from "./Screens/AccountScreen";
+// import BottomTab from "./components/Navigation/BottomTab";
 import Footer from "./components/Footer/Footer";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome5, Entypo } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -112,10 +114,47 @@ export default function App() {
         />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Cart" component={CartScreen} />
-        <Stack.Screen name="setting" component={AcountSettings} />
+        <Stack.Screen
+          name="setting"
+          component={AcountSettings}
+          options={{
+            headerRight: () => (
+              <TouchableOpacity>
+                <Entypo
+                  name="menu"
+                  size={24}
+                  color="#fff"
+                  style={{ marginRight: 20 }}
+                />
+              </TouchableOpacity>
+            ),
+          }}
+        />
         <Stack.Screen name="footer" component={Footer} />
-        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{
+            headerTitle: () => (
+              <View style={styles.logoImage}>
+                <FontAwesome5 name="shopify" size={30} color="#FF5733" />
+                <Text
+                  style={{
+                    color: "#FF5733",
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    marginLeft: 10,
+                  }}
+                >
+                  Dezzy
+                </Text>
+              </View>
+            ),
+          }}
+        />
       </Stack.Navigator>
+
+      {/* <BottomTab /> */}
     </NavigationContainer>
   );
 }
@@ -128,5 +167,8 @@ const styles = StyleSheet.create({
 
   headerTitle: {
     height: 77,
+  },
+  logoImage: {
+    flexDirection: "row",
   },
 });

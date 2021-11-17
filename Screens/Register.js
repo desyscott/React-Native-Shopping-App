@@ -1,12 +1,20 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { Button, StyleSheet, View, TextInput } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  View,
+  ImageBackground,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import { Input, Text } from "react-native-elements";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 //firebase
 import { FireBaseApp } from "../src/Firebase/Firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import bgImage from "../assets/Images/bgImage2.jpg";
 
 export default function SignupScreen({ navigation }) {
   const [password, setPassword] = useState("");
@@ -24,18 +32,20 @@ export default function SignupScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <ImageBackground source={bgImage} style={styles.container}>
       <StatusBar style="auto" />
       <View Style={{ textAlign: "center" }}>
-        <Text h4 style={{ paddingBottom: 50 }}>
-          Create a new account{" "}
-          <FontAwesome5 name="shopify" size={30} color="black" />
+        <Text h4 style={{ paddingBottom: 50, color: "#fff", marginRight: 10 }}>
+          Create a new account
+          <FontAwesome5 name="shopify" size={30} color="#FF5733" />
         </Text>
       </View>
       <View style={styles.InputContainer}>
         <Input
+          style={styles.textInput}
           value={email}
-          placeholder="Enter Full Name"
+          placeholder="Enter Email"
+          // placeholderTextColor={"#fff"}
           onChangeText={(email) => {
             setEmail(email);
           }}
@@ -43,8 +53,10 @@ export default function SignupScreen({ navigation }) {
       </View>
       <View style={styles.InputContainer}>
         <Input
+          style={styles.textInput}
           value={password}
           placeholder="Password"
+          // placeholderTextColor={"#fff"}
           onChangeText={(password) => {
             setPassword(password);
           }}
@@ -56,13 +68,26 @@ export default function SignupScreen({ navigation }) {
         onPress={() => handleUserRegistration(email, password)}
       />
       <View style={{ height: 20 }} />
-      <Text style={{ fontWeight: "bold", fontSize: 15 }}>
-        Already have an account?
-      </Text>
 
-      <View style={{ height: 10 }} />
-      <Button title="Login " onPress={() => navigation.replace("Login")} />
-    </View>
+      <TouchableOpacity
+        onPress={() => navigation.replace("Login")}
+        style={{ flexDirection: "row" }}
+      >
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 15,
+            color: "#fff",
+            marginRight: 5,
+          }}
+        >
+          Already have an account?
+        </Text>
+        <Text style={{ color: "#33B2FF", fontWeight: "bold", fontSize: 18 }}>
+          Login
+        </Text>
+      </TouchableOpacity>
+    </ImageBackground>
   );
 }
 
@@ -76,6 +101,12 @@ const styles = StyleSheet.create({
 
   InputContainer: {
     width: 310,
-    margin: 10,
+    margin: 5,
+  },
+  textInput: {
+    backgroundColor: "#FFf",
+    height: 50,
+    borderRadius: 10,
+    padding: 10,
   },
 });

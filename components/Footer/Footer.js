@@ -11,7 +11,11 @@ function Footer({ navigation }) {
   return (
     <View style={styles.footerWrapper}>
       <TouchableOpacity onPress={() => navigation.replace("Home")}>
-        <Foundation name="home" size={28} color="black" />
+        <Foundation
+          name="home"
+          size={28}
+          color={({ focused }) => (focused ? "#e32f45" : "#748c64")}
+        />
       </TouchableOpacity>
       <TouchableOpacity>
         <FontAwesome name="search" size={25} color="black" />
@@ -27,8 +31,12 @@ function Footer({ navigation }) {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity>
-        <Ionicons name="help-circle-outline" size={28} color="black" />
+      <TouchableOpacity onPress={() => navigation.replace("Home")}>
+        <Ionicons
+          name="help-circle-outline"
+          size={28}
+          color={({ focused }) => (focused ? "#e32f45" : "#748c64")}
+        />
       </TouchableOpacity>
     </View>
   );

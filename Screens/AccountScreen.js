@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 //firebase
 import { FireBaseApp } from "../src/Firebase/Firebase";
@@ -19,6 +19,16 @@ export default function SignOutScreen({ navigation }) {
       <Text>This is the SignOut Screen</Text>
       <StatusBar style="auto" />
       <View style={{ height: 40 }} />
+      <TouchableOpacity
+        onPress={() => {
+          navigation.replace("Home");
+        }}
+      >
+        <Text style={{ color: "#63B1EE", fontWeight: "bold" }}>
+          Go Back Home
+        </Text>
+      </TouchableOpacity>
+      <View style={{ height: 20 }} />
       <Button title="Sign out" onPress={handleSignOut} />
     </View>
   );
