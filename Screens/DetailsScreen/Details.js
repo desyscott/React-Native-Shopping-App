@@ -9,17 +9,17 @@ import {
   ScrollView,
 } from "react-native";
 import { Button } from "react-native-elements";
+import { connect } from "react-redux";
 
 import {
   MaterialCommunityIcons,
   Ionicons,
   FontAwesome,
   Feather,
-  EvilIcons,
   Entypo,
 } from "@expo/vector-icons";
 
-const Details = ({ navigation, route }) => {
+const Details = ({ addToCart, route }) => {
   const items = route.params;
 
   const initialCount = 1;
@@ -150,10 +150,9 @@ const Details = ({ navigation, route }) => {
           cdwkjbjkd;kkdl dcjvkjbd
         </Text>
       </ScrollView>
-      <TouchableOpacity
-        style={styles.CartBtn}
-        onPress={() => navigation.navigate("Cart", items)}
-      >
+      {/* When we click on the item we get that specific item to the addToCart
+      Props */}
+      <TouchableOpacity style={styles.CartBtn} onPress={() => addToCart(items)}>
         <View style={{ marginRight: 20 }}>
           <MaterialCommunityIcons name="cart-plus" size={24} color="#fff" />
         </View>
@@ -167,7 +166,14 @@ const Details = ({ navigation, route }) => {
   );
 };
 
-export default Details;
+//Dispatch the action
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (item) => dispatch({ type: "ADD_TO_CARD", payLoad: item }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Details);
 
 const styles = StyleSheet.create({
   img: {

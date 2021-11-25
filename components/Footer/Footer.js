@@ -20,8 +20,8 @@ function Footer({ navigation }) {
       <TouchableOpacity>
         <FontAwesome name="search" size={25} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity>
-        <MaterialCommunityIcons name="shopping" size={28} color="black" />
+      <TouchableOpacity onPress={() => navigation.replace("Cart")}>
+        <MaterialCommunityIcons name="cart-outline" size={28} color="black" />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.replace("setting")}>
         <MaterialCommunityIcons
