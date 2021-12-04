@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   View,
@@ -13,8 +13,13 @@ import { Input, Text } from "react-native-elements";
 import { FireBaseApp } from "../src/Firebase/Firebase";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import bgImage from "../assets/Images/bgImage2.jpg";
+import { StatusBar } from "expo-status-bar";
 
 const Login = ({ navigation }) => {
   const [password, setPassword] = useState("");
@@ -32,8 +37,18 @@ const Login = ({ navigation }) => {
       .catch((error) => console.log(error.message));
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      if (authUser) {
+        navigation.replace("Home");
+      }
+    });
+    return unsubscribe;
+  }, []);
+
   return (
     <ImageBackground source={bgImage} style={styles.container}>
+      <StatusBar style="light" />
       <View>
         <FontAwesome5 name="shopify" size={30} color="#FF5733" />
       </View>
@@ -65,7 +80,7 @@ const Login = ({ navigation }) => {
           }}
           secureTextEntry={true}
         />
-        <Text style={{ fontWeight: "bold", fontSize: 18, color: "#000" }}>
+        <Text style={{ fontWeight: "bold", fontSize: 18, color: "#ffff" }}>
           Forget your password?
         </Text>
       </View>

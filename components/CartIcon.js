@@ -5,12 +5,14 @@ import { connect } from "react-redux";
 
 function CartIcon({ CartItems, navigation }) {
   return (
-    <TouchableOpacity>
-      <View style={styles.numCart}>
-        <Text style={{ color: "#fff", fontWeight: "bold" }}>
-          {CartItems.length}
-        </Text>
-      </View>
+    <TouchableOpacity onPress={() => navigation.replace("Cart")}>
+      {CartItems.length > 0 && (
+        <View style={styles.numCart}>
+          <Text style={{ color: "#fff", fontWeight: "bold" }}>
+            {CartItems.length}
+          </Text>
+        </View>
+      )}
       <TouchableOpacity onPress={() => navigation.replace("Cart")}>
         <MaterialCommunityIcons name="cart-outline" size={24} color="#fff" />
       </TouchableOpacity>

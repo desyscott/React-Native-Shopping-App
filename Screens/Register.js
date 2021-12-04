@@ -33,7 +33,7 @@ export default function SignupScreen({ navigation }) {
 
   return (
     <ImageBackground source={bgImage} style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <View Style={{ textAlign: "center" }}>
         <Text h4 style={{ paddingBottom: 50, color: "#fff", marginRight: 10 }}>
           Create a new account

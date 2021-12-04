@@ -12,7 +12,7 @@ import {
   View,
 } from "react-native";
 import Categories from "../../components/Categories/Categories";
-import { SneakersItems } from "../../assets/DataItems/SneakersData";
+import { SneakersItems, Ratings } from "../../assets/DataItems/SneakersData";
 import { CardWrapper } from "../../components/Cards/CardElements";
 // import BottomTab from "../../components/Navigation/BottomTab";
 

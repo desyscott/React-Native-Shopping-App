@@ -23,7 +23,7 @@ function Footer({ navigation }) {
       <TouchableOpacity onPress={() => navigation.replace("Cart")}>
         <MaterialCommunityIcons name="cart-outline" size={28} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.replace("setting")}>
+      <TouchableOpacity onPress={() => navigation.replace("Account")}>
         <MaterialCommunityIcons
           name="account-circle-outline"
           size={28}
@@ -31,7 +31,7 @@ function Footer({ navigation }) {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.replace("Home")}>
+      <TouchableOpacity onPress={() => navigation.replace("Help")}>
         <Ionicons
           name="help-circle-outline"
           size={28}
